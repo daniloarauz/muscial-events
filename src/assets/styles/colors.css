@@ -1,0 +1,10 @@
+:root
+{
+  --primary-color: #FFA000;
+  --secondary-color: #292D39;
+  --accent-color: #E91E63;
+}
+
+.alerta {
+  color: var(--primary-color);
+}
