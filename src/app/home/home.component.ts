@@ -6,7 +6,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { EventCardComponent } from './event-card/event-card.component';
 import { HomeService } from './home.service';
 import { Genre } from '../shared/models/genre.model';
-import { NgFor } from '@angular/common';
 import { Concert } from '../shared/models/concert.model';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -19,7 +18,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatFormFieldModule,
     EventCardComponent,
-    NgFor,
     ReactiveFormsModule,
   ],
   templateUrl: './home.component.html',
