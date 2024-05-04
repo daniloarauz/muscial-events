@@ -7,6 +7,7 @@ import { EventCardComponent } from './event-card/event-card.component';
 import { HomeService } from './home.service';
 import { Genre } from '../shared/models/genre.model';
 import { NgFor } from '@angular/common';
+import { Concert } from '../shared/models/concert.model';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { NgFor } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
   genres: Genre[] = [];
+  concerts: Concert[] = [];
 
   homeService = inject(HomeService);
 
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getData().subscribe((data)=> {
       console.log(data);
       this.genres = data.genres;
+      this.concerts = data.concerts;
     });
   }
 }
