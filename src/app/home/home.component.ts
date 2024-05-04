@@ -1,17 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HeaderComponent } from '../shared/components/header/header.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EventCardComponent } from './event-card/event-card.component';
+import { HomeService } from './home.service';
+import { Genre } from '../shared/models/genre.model';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, MatSelectModule, MatFormFieldModule, EventCardComponent],
+  imports: [HeaderComponent, FooterComponent, MatSelectModule, MatFormFieldModule, EventCardComponent, NgFor],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  genres: Genre[] = [];
 
+  homeService = inject(HomeService);
+
+   ngOnInit(){
+    this.homeService.getData().subscribe((data)=> {
+      console.log(data);
+      this.genres = data.genres;
+    });
+  }
 }
